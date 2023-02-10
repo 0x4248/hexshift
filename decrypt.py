@@ -6,7 +6,6 @@ def decrypt(data,shifters):
         output = ""
         for d in data:
             index = s.index(d)
-
             output = output + shifter[index]
         data = output
     return bytes(bytearray.fromhex(data))
