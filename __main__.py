@@ -2,7 +2,7 @@ import hexshift
 import os
 import hashlib
 from colorama import Fore, Back, Style
-version = "0.1"
+version = "1.0.0"
 banner = r""" **      ** ******** **     **  ******** **      ** ** ******** **********
 /**     /**/**///// //**   **  **////// /**     /**/**/**///// /////**/// 
 /**     /**/**       //** **  /**       /**     /**/**/**          /**    
