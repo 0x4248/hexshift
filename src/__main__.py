@@ -1,7 +1,8 @@
 # Hexshift
 # A encryption algorithm that uses shifters to cipher hex.
-# By: Lewis Evans
 # Github: https://www.github.com/awesomelewis2007/hexshift
+# Licence: GPL-3.0
+# By: Lewis Evans
 
 import hexshift
 import os
