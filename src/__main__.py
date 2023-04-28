@@ -8,6 +8,7 @@ import hexshift
 import os
 import hashlib
 from colorama import Fore, Back, Style
+
 version = "1.0.0"
 banner = r""" **      ** ******** **     **  ******** **      ** ** ******** **********
 /**     /**/**///// //**   **  **////// /**     /**/**/**///// /////**/// 
@@ -17,7 +18,9 @@ banner = r""" **      ** ******** **     **  ******** **      ** ** ******** ***
 /**     /**/**        ** //**        /**/**     /**/**/**          /**    
 /**     /**/******** **   //** ******** /**     /**/**/**          /**    
 //      // //////// //     // ////////  //      // // //           //     """
-def shifter_mode_menu(): 
+
+
+def shifter_mode_menu():
     while True:
         print("Please chose an option")
         print("1) hexshift-8")
@@ -28,9 +31,9 @@ def shifter_mode_menu():
         print("6) hexshift-256")
         print("7) hexshift-512")
         print("8) Other")
-        choice  = input(">")
+        choice = input(">")
         if choice == "1":
-            return 8 
+            return 8
         elif choice == "2":
             return 16
         elif choice == "3":
@@ -50,63 +53,71 @@ def shifter_mode_menu():
                 except:
                     print("Enter a number only")
                     continue
-                return number 
+                return number
         else:
             print("Chose a valid option 1 or 2")
+
+
 def cli_encrypt():
     while True:
         print("Please chose an option")
         print("1) Encrypt text")
         print("2) Encrypt file")
-        choice  = input(">")
+        choice = input(">")
         if choice == "1":
             text = input("Enter text to encrypt>").encode()
             passes = shifter_mode_menu()
-            data, key = hexshift.encrypt(text,passes)
+            data, key = hexshift.encrypt(text, passes)
             while True:
-                output_location = input("Where do you want to save the encrypted text and key>")
+                output_location = input(
+                    "Where do you want to save the encrypted text and key>"
+                )
                 if os.path.exists(output_location):
                     break
                 else:
                     print("Enter a valid location")
             hash_object = hashlib.md5(data)
             file_name = hash_object.hexdigest()
-            open(file_name+".txt","wb").write(data)
+            open(file_name + ".txt", "wb").write(data)
             for a in key:
                 for b in a:
-                    open(file_name+".key","a").write(b)
-                open(file_name+".key","a").write("\n")
-            print("Written data file to "+output_location+"/"+file_name+".txt")
-            print("Written key file to "+output_location+"/"+file_name+".key")
+                    open(file_name + ".key", "a").write(b)
+                open(file_name + ".key", "a").write("\n")
+            print("Written data file to " + output_location + "/" + file_name + ".txt")
+            print("Written key file to " + output_location + "/" + file_name + ".key")
             exit()
         elif choice == "2":
             file_location = input("Enter file to encrypt>")
-            file_data = open(file_location,"rb").read()
+            file_data = open(file_location, "rb").read()
             passes = shifter_mode_menu()
-            data, key = hexshift.encrypt(file_data,passes)
+            data, key = hexshift.encrypt(file_data, passes)
             while True:
-                output_location = input("Where do you want to save the encrypted file and key>")
+                output_location = input(
+                    "Where do you want to save the encrypted file and key>"
+                )
                 if os.path.exists(output_location):
                     break
                 else:
                     print("Enter a valid location")
             hash_object = hashlib.md5(data)
             file_name = hash_object.hexdigest()
-            open(file_name+".txt","wb").write(data)
+            open(file_name + ".txt", "wb").write(data)
             for a in key:
                 for b in a:
-                    open(file_name+".key","a").write(b)
-                open(file_name+".key","a").write("\n")
-            print("Written data file to "+output_location+"/"+file_name+".txt")
-            print("Written key file to "+output_location+"/"+file_name+".key")
+                    open(file_name + ".key", "a").write(b)
+                open(file_name + ".key", "a").write("\n")
+            print("Written data file to " + output_location + "/" + file_name + ".txt")
+            print("Written key file to " + output_location + "/" + file_name + ".key")
             exit()
         else:
             print("Chose a valid option 1 or 2")
+
+
 def cli_decrypt():
     file_location = input("Enter file to decrypt>")
     key_location = input("Enter keyfile>")
-    file_data = open(file_location,"rb").read()
-    key_data = open(key_location,"r").read()
+    file_data = open(file_location, "rb").read()
+    key_data = open(key_location, "r").read()
     key_data = key_data.split("\n")
     a = []
     for c in key_data:
@@ -116,7 +127,7 @@ def cli_decrypt():
         for d in c:
             b.append(d)
         a.append(b)
-    data = hexshift.decrypt(file_data,a)
+    data = hexshift.decrypt(file_data, a)
     while True:
         output_location = input("Where do you want to save the decrypted file>")
         if os.path.exists(output_location):
@@ -124,20 +135,21 @@ def cli_decrypt():
         else:
             print("Enter a valid location")
     file_name = input("File name to save decrypted file>")
-    open(file_name,"wb").write(data)
-    print("Written data file to "+output_location+"/"+file_name)
+    open(file_name, "wb").write(data)
+    print("Written data file to " + output_location + "/" + file_name)
     exit()
 
+
 if __name__ == "__main__":
-    print(Fore.CYAN+banner+Style.RESET_ALL)
-    print("Welcome to hexshift CLI V"+version)
+    print(Fore.CYAN + banner + Style.RESET_ALL)
+    print("Welcome to hexshift CLI V" + version)
     while True:
         print("Please chose an option")
         print("1) Encrypt")
         print("2) Decrypt")
-        choice  = input(">")
+        choice = input(">")
         if choice == "1":
-            cli_encrypt() 
+            cli_encrypt()
             break
         elif choice == "2":
             cli_decrypt()

@@ -5,14 +5,52 @@
 # By: Lewis Evans
 
 import random
+
+
 def generate_shifter():
-    shifter = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+    shifter = [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+    ]
     random.shuffle(shifter)
     return shifter
-def encrypt(data,shift_times):
+
+
+def encrypt(data, shift_times):
     data = data.hex().upper()
     iterate = 0
-    shifter = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+    shifter = [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+    ]
     shifters = []
     for i in range(shift_times):
         output = ""
@@ -22,11 +60,29 @@ def encrypt(data,shift_times):
             index = shifter.index(d)
             output = output + shift_list[index]
         data = output
-    return bytes(bytearray.fromhex(data)),shifters
+    return bytes(bytearray.fromhex(data)), shifters
 
-def decrypt(data,shifters):
+
+def decrypt(data, shifters):
     data = data.hex().upper()
-    shifter = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+    shifter = [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+    ]
     for s in reversed(shifters):
         output = ""
         for d in data:
