@@ -4,9 +4,10 @@
 # Licence: GPL-3.0
 # By: Lewis Evans
 
-import hexshift
+import sys
 import os
 import hashlib
+import hexshift
 from colorama import Fore, Back, Style
 
 version = "1.0.0"
@@ -85,7 +86,7 @@ def cli_encrypt():
                 open(file_name + ".key", "a").write("\n")
             print("Written data file to " + output_location + "/" + file_name + ".txt")
             print("Written key file to " + output_location + "/" + file_name + ".key")
-            exit()
+            sys.exit(0)
         elif choice == "2":
             file_location = input("Enter file to encrypt>")
             file_data = open(file_location, "rb").read()
@@ -108,9 +109,9 @@ def cli_encrypt():
                 open(file_name + ".key", "a").write("\n")
             print("Written data file to " + output_location + "/" + file_name + ".txt")
             print("Written key file to " + output_location + "/" + file_name + ".key")
-            exit()
+            sys.exit(0)
         else:
-            print("Chose a valid option 1 or 2")
+            print("Chose a valid option" + Fore.CYAN + " 1 " + Fore.RESET + "or" + Fore.CYAN + " 2" + Fore.RESET)
 
 
 def cli_decrypt():
@@ -120,6 +121,7 @@ def cli_decrypt():
     key_data = open(key_location, "r").read()
     key_data = key_data.split("\n")
     a = []
+
     for c in key_data:
         if len(c) == 0:
             break
@@ -128,16 +130,18 @@ def cli_decrypt():
             b.append(d)
         a.append(b)
     data = hexshift.decrypt(file_data, a)
+
     while True:
         output_location = input("Where do you want to save the decrypted file>")
         if os.path.exists(output_location):
             break
         else:
             print("Enter a valid location")
+    
     file_name = input("File name to save decrypted file>")
     open(file_name, "wb").write(data)
     print("Written data file to " + output_location + "/" + file_name)
-    exit()
+    sys.exit(0)
 
 
 if __name__ == "__main__":
@@ -155,4 +159,4 @@ if __name__ == "__main__":
             cli_decrypt()
             break
         else:
-            print("Chose a valid option 1 or 2")
+            print("Chose a valid option" + Fore.CYAN + " 1 " + Fore.RESET + "or" + Fore.CYAN + " 2" + Fore.RESET)
