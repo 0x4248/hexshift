@@ -111,7 +111,16 @@ def cli_encrypt():
             print("Written key file to " + output_location + "/" + file_name + ".key")
             sys.exit(0)
         else:
-            print("Chose a valid option" + Fore.CYAN + " 1 " + Fore.RESET + "or" + Fore.CYAN + " 2" + Fore.RESET)
+            print(
+                "Chose a valid option"
+                + Fore.CYAN
+                + " 1 "
+                + Fore.RESET
+                + "or"
+                + Fore.CYAN
+                + " 2"
+                + Fore.RESET
+            )
 
 
 def cli_decrypt():
@@ -137,7 +146,7 @@ def cli_decrypt():
             break
         else:
             print("Enter a valid location")
-    
+
     file_name = input("File name to save decrypted file>")
     open(file_name, "wb").write(data)
     print("Written data file to " + output_location + "/" + file_name)
@@ -159,4 +168,13 @@ if __name__ == "__main__":
             cli_decrypt()
             break
         else:
-            print("Chose a valid option" + Fore.CYAN + " 1 " + Fore.RESET + "or" + Fore.CYAN + " 2" + Fore.RESET)
+            print(
+                "Chose a valid option"
+                + Fore.CYAN
+                + " 1 "
+                + Fore.RESET
+                + "or"
+                + Fore.CYAN
+                + " 2"
+                + Fore.RESET
+            )
