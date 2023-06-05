@@ -13,7 +13,7 @@
 
 Hexshift is a encryption algorithm that uses shifters to cipher hex.
 
-> **Note**
+> **Warning**
 >
 > Do not use this algorithm for anything important as it may not be as secure. Use more secure algorithms like AES or RSA.
 
