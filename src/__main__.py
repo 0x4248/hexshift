@@ -10,7 +10,7 @@ import hashlib
 import hexshift
 from colorama import Fore, Back, Style
 
-version = "1.0.0"
+version = "1.1.0"
 banner = r""" **      ** ******** **     **  ******** **      ** ** ******** **********
 /**     /**/**///// //**   **  **////// /**     /**/**/**///// /////**/// 
 /**     /**/**       //** **  /**       /**     /**/**/**          /**    
@@ -23,7 +23,7 @@ banner = r""" **      ** ******** **     **  ******** **      ** ** ******** ***
 
 def shifter_mode_menu():
     while True:
-        print("Please chose an option")
+        print("Please chose an option the more passes the more secure but slower and takes more space")
         print("1) hexshift-8")
         print("2) hexshift-16")
         print("3) hexshift-32")

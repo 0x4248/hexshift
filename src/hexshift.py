@@ -31,6 +31,16 @@ def generate_shifter():
 
 
 def encrypt(data, shift_times):
+    """Encrypts data using hexshift
+
+    Args:
+        data (str): The data to encrypt
+        shift_times (int): The amount of times to shift the data
+
+    Returns:
+        bytes: The encrypted data
+        list: The shifters used
+    """
     data = data.hex().upper()
     iterate = 0
     shifter = [
@@ -64,6 +74,15 @@ def encrypt(data, shift_times):
 
 
 def decrypt(data, shifters):
+    """Decrypts data using hexshift
+
+    Args:
+        data (str): The data to decrypt
+        shifters (list): The shifters used to encrypt the data
+
+    Returns:
+        bytes: The decrypted data
+    """
     data = data.hex().upper()
     shifter = [
         "0",
