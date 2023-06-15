@@ -128,9 +128,20 @@ def cli_encrypt():
 def cli_decrypt():
     file_location = input("Enter file to decrypt>")
     key_location = input("Enter keyfile>")
-    file_data = open(file_location, "rb").read()
-    key_data = open(key_location, "r").read()
+    try:
+        file_data = open(file_location, "rb").read()
+    except FileNotFoundError:
+        print("File not found")
+        return
+    try:
+        key_data = open(key_location, "r").read()
+    except FileNotFoundError:
+        print("Keyfile not found")
+        return
     key_data = key_data.split("\n")
+    if len(key_data) != 4:
+        print("Keyfile is not formatted correctly")
+        return
     a = []
 
     for c in key_data:
