@@ -1,0 +1,14 @@
+{
+    "name": "hexshift",
+    "description": "Hexshift is a encryption algorithm that uses shifters to cipher hex.",
+    "version": "",
+    "main_file": "src/__main__.py",
+    "author": "Lewis Evans",
+    "license": "none",
+    "url": "https://www.github.com/awesomelewis2007/hexshift",
+    "email": "none",
+    "languages": [
+        "python"
+    ],
+    "actions": {}
+}
