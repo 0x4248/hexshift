@@ -178,7 +178,7 @@ def cli_decrypt():
 
 if __name__ == "__main__":
     """Main function"""
-    
+
     print(Fore.CYAN + banner + Style.RESET_ALL)
     print("Welcome to hexshift CLI V" + version)
     while True:
