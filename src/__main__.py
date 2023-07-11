@@ -23,7 +23,9 @@ banner = r""" **      ** ******** **     **  ******** **      ** ** ******** ***
 
 def shifter_mode_menu():
     while True:
-        print("Please select an option to adjust the security level. Increasing the number of passes will improve security but also increase processing time and storage space usage")
+        print(
+            "Please select an option to adjust the security level. Increasing the number of passes will improve security but also increase processing time and storage space usage"
+        )
         print("1) hexshift-8")
         print("2) hexshift-16")
         print("3) hexshift-32")
