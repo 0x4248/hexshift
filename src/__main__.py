@@ -22,8 +22,8 @@ banner = r""" **      ** ******** **     **  ******** **      ** ** ******** ***
 
 
 def shifter_mode_menu():
-    """ Shows the shifter mode menu
-    
+    """Shows the shifter mode menu
+
     Returns:
         int: Number of passes to use
     """
@@ -68,9 +68,7 @@ def shifter_mode_menu():
 
 
 def cli_encrypt():
-    """ Shows the encrypt menu
-    """
-
+    """Shows the encrypt menu"""
     while True:
         print("Please chose an option")
         print("1) Encrypt text")
@@ -135,9 +133,7 @@ def cli_encrypt():
 
 
 def cli_decrypt():
-    """ Shows the decrypt menu
-    """
-
+    """Shows the decrypt menu"""
     file_location = input("Enter file to decrypt>")
     key_location = input("Enter keyfile>")
     try:
@@ -179,9 +175,7 @@ def cli_decrypt():
 
 
 if __name__ == "__main__":
-    """ Main function
-    """
-
+    """Main function"""
     print(Fore.CYAN + banner + Style.RESET_ALL)
     print("Welcome to hexshift CLI V" + version)
     while True:
