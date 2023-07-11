@@ -94,8 +94,8 @@ def cli_encrypt():
                 for b in a:
                     open(file_name + ".key", "a").write(b)
                 open(file_name + ".key", "a").write("\n")
-            print("Written data file to " + output_location + "/" + file_name + ".txt")
-            print("Written key file to " + output_location + "/" + file_name + ".key")
+            print("Written data file to: " + output_location + "/" + file_name + ".txt")
+            print("Written key file to: " + output_location + "/" + file_name + ".key")
             sys.exit(0)
         elif choice == "2":
             file_location = input("Enter file to encrypt>")
@@ -117,8 +117,8 @@ def cli_encrypt():
                 for b in a:
                     open(file_name + ".key", "a").write(b)
                 open(file_name + ".key", "a").write("\n")
-            print("Written data file to " + output_location + "/" + file_name + ".txt")
-            print("Written key file to " + output_location + "/" + file_name + ".key")
+            print("Written data file to: " + output_location + "/" + file_name + ".txt")
+            print("Written key file to: " + output_location + "/" + file_name + ".key")
             sys.exit(0)
         else:
             print(
@@ -172,7 +172,7 @@ def cli_decrypt():
 
     file_name = input("File name to save decrypted file>")
     open(file_name, "wb").write(data)
-    print("Written data file to " + output_location + "/" + file_name)
+    print("Written data file to: " + output_location + "/" + file_name)
     sys.exit(0)
 
 
