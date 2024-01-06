@@ -29,6 +29,7 @@ def generate_shifter():
     random.shuffle(shifter)
     return shifter
 
+
 def encrypt(data, shift_times):
     """Encrypts data using hexshift
 
