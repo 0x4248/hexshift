@@ -3,9 +3,9 @@
     "description": "Hexshift is a encryption algorithm that uses shifters to cipher hex.",
     "version": "",
     "main_file": "src/__main__.py",
-    "author": "Lewis Evans",
+    "author": "0x4248",
     "license": "GNU General Public License v3.0",
-    "url": "https://www.github.com/lewisevans2007/hexshift",
+    "url": "https://www.github.com/0x4248/hexshift",
     "email": "none",
     "languages": [
         "python"
